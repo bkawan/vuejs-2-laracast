@@ -70,6 +70,16 @@
     <h4>{{ reversedMessage }}</h4>
 
 
+    <h4>All Tasks</h4>
+    <ul>
+        <li v-for="task in tasks" v-text="task.title"></li>
+    </ul>
+
+    <h4>Completed task</h4>
+    <ul>
+        <li v-for="task in tasks" v-if="task.status" v-text="task.title"></li>
+    </ul>
+
 </div>
 
 <script>
@@ -87,7 +97,14 @@
             newCountry: '',
             title: 'You hovered me through vue js ',
             className: 'color-blue',
-            isLoading:false,
+            isLoading: false,
+            tasks: [
+                {title: 'add color', status: true},
+                {title: 'check message', status: false},
+                {title: 'send email', status: true},
+                {title: 'collect parcel', status: false},
+                {title: 'arrange meeting', status: true},
+            ]
         },
         methods: {
             addCountry(){
@@ -96,13 +113,14 @@
                 this.newCountry = '';
             },
             toggleClass(){
-                this.isLoading=true
+                this.isLoading = true
             }
         },
-        computed:{
+        computed: {
             reversedMessage(){
                 return this.message.split("").reverse().join('-');
             }
+
         }
 
 
