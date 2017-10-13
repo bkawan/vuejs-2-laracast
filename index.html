@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .color-red{
-            color:red;
+        .color-red {
+            color: red;
         }
-        .color-blue{
-            color:blue;
+
+        .color-blue {
+            color: blue;
+        }
+
+        .is-loading {
+            background-color: black;
+        }
+
+        .is-active {
+            background-color: blue;
         }
     </style>
 </head>
@@ -46,8 +55,13 @@
     <br>
     <h1 class="color-red">Class Attribute Binding</h1>
     <br>
+    <!-- short cut for v-bind -->
     <h1 :class="className">Class Attribute Binding</h1>
-
+    <br>
+    <button :class="{'is-active':true}"> Active Class</button>
+    <button :class="{'is-active':false}"> Not Active Class</button>
+    <br>
+    <button :class="{'is-loading':isLoading}" @click="toggleClass"> Click Me</button>
 
 
 </div>
@@ -60,22 +74,23 @@
     var app1 = new Vue({
         el: "#root",
         data: {
-
             message: "Hello Vue js! it is awesome",
             country: "Nepal",
             location: "Bhaktapur",
             countries: ["Nepal", 'india', 'china', 'uk', 'us'],
             newCountry: '',
-            title:'You hovered me through vue js ',
-            className:'color-blue',
-
-
+            title: 'You hovered me through vue js ',
+            className: 'color-blue',
+            isLoading:false,
         },
         methods: {
             addCountry(){
 //              alert('adding country');
                 this.countries.push(this.newCountry);
                 this.newCountry = '';
+            },
+            toggleClass(){
+                this.isLoading=true
             }
         }
 
