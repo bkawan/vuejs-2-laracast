@@ -26,7 +26,7 @@
 
 
     <!--<input type="text" id="country">-->
-    <input type="text" id="country" v-model="newCountry">
+    <input type="text" id="country" v-model="newCountry" v-on:keyUp="addCountry">
     <!--<button id="button">Add Country</button>-->
     <button id="button" v-on:click="addCountry">Add Country</button>
 
