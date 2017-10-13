@@ -25,8 +25,10 @@
     </ol>
 
 
-    <input type="text" id="country">
-    <button id="button">Add Country</button>
+    <!--<input type="text" id="country">-->
+    <input type="text" id="country" v-model="newCountry">
+    <!--<button id="button">Add Country</button>-->
+    <button id="button" v-on:click="addCountry">Add Country</button>
 
 
 </div>
@@ -43,23 +45,32 @@
             message: "Hello Vue js! it is awesome",
             country: "Nepal",
             location: "Bhaktapur",
-            countries: ["Nepal", 'india', 'china', 'uk', 'us']
+            countries: ["Nepal", 'india', 'china', 'uk', 'us'],
+            newCountry: ''
 
         },
-        mounted(){
-            document.querySelector('#button').addEventListener('click', () => {
-                let country = document.querySelector('#country');
-                app1.countries.push(country.value);
-                country.value = '';
-            });
+        methods: {
+            addCountry(){
+//              alert('adding country');
+                this.countries.push(this.newCountry);
+                this.newCountry = '';
+            }
         }
+
+//        mounted(){
+//            document.querySelector('#button').addEventListener('click', () => {
+//                let country = document.querySelector('#country');
+//                app1.countries.push(country.value);
+//                country.value = '';
+//            });
+//        }
     });
-//
-//    document.querySelector('#button').addEventListener('click', () => {
-//        let country = document.querySelector('#country');
-//        app1.countries.push(country.value);
-//        country.value = '';
-//    });
+    //
+    //    document.querySelector('#button').addEventListener('click', () => {
+    //        let country = document.querySelector('#country');
+    //        app1.countries.push(country.value);
+    //        country.value = '';
+    //    });
 </script>
 </body>
 </html>
