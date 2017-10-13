@@ -30,6 +30,12 @@
     <!--<button id="button">Add Country</button>-->
     <button id="button" @click="addCountry">Add Country</button>
 
+    <hr>
+    <h1>Attribute and class binding</h1>
+    <button title="Hello you just hover me">hover me</button>
+    <br>
+    <button v-bind:title="title">Hover Me again</button>
+
 
 </div>
 
@@ -46,7 +52,8 @@
             country: "Nepal",
             location: "Bhaktapur",
             countries: ["Nepal", 'india', 'china', 'uk', 'us'],
-            newCountry: ''
+            newCountry: '',
+            title:'You hovered me through vue js '
 
         },
         methods: {
