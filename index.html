@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://unpkg.com/vue@2.5.0/dist/vue.js"></script>
+<div id="root">
+    <input type="text" id="name" v-model="message">
+    <p>The value of the input is : {{message}}</p>
+
+    <hr>
+    {{ country }}
+    <br>
+    {{ location }}
+    <hr>
+    <h1>for loop </h1>
+
+    <ol>
+        <li v-for="country in countries">{{country}}</li>
+        <hr>
+        <li v-for="country in countries" v-text="country"></li>
+    </ol>
+
+
+    <input type="text" id="country">
+    <button id="button">Add Country</button>
+
+
+</div>
+
+<script>
+    let data = {
+
+        message: "Hello Vue js"
+    };
+    var app1 = new Vue({
+        el: "#root",
+        data: {
+
+            message: "Hello Vue js! it is awesome",
+            country: "Nepal",
+            location: "Bhaktapur",
+            countries: ["Nepal", 'india', 'china', 'uk', 'us']
+
+        },
+        mounted(){
+            document.querySelector('#button').addEventListener('click', () => {
+                let country = document.querySelector('#country');
+                app1.countries.push(country.value);
+                country.value = '';
+            });
+        }
+    });
+//
+//    document.querySelector('#button').addEventListener('click', () => {
+//        let country = document.querySelector('#country');
+//        app1.countries.push(country.value);
+//        country.value = '';
+//    });
+</script>
+</body>
+</html>
