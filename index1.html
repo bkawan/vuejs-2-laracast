@@ -10,10 +10,14 @@
 <div id="root2"></div>
 <div id="root">
     <div class="container">
-
         <h1> Practical Component Examples </h1>
         <message title="This is First title  " body="this is first body "></message>
+        <br>
         <message title="This is Second Title  " body="this is second body "></message>
+
+        <h1>Practical Component Example - Modal</h1>
+       <modal v-show="showModal" @close="showModal=false"></modal>
+        <button @click="showModal=true"> show Modal</button>
 
     </div>
 </div>
