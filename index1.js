@@ -39,7 +39,7 @@ Vue.component('modal', {
    <div class="modal is-active">
             <div class="modal-background"></div>
             <div class="modal-content">
-                This is example of modal-content
+            <slot></slot>
             </div>
             <button class="modal-close is-large"  @click="$emit('close')" aria-label="close"></button>
         </div>

@@ -16,7 +16,9 @@
         <message title="This is Second Title  " body="this is second body "></message>
 
         <h1>Practical Component Example - Modal</h1>
-       <modal v-show="showModal" @close="showModal=false"></modal>
+        <modal v-show="showModal" @close="showModal=false">
+            <p> This is modal content</p>
+        </modal>
         <button @click="showModal=true"> show Modal</button>
 
     </div>
