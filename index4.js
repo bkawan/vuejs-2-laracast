@@ -7,7 +7,7 @@ Vue.component('coupon', {
     template: '<input placeholder="Enter a coupon" @blur="onCouponApplied"></input>',
     methods: {
         onCouponApplied(){
-            alert('Coupon was applied successfully')
+            this.$emit('applied');
         }
 
     }
@@ -17,9 +17,12 @@ Vue.component('coupon', {
 
 new Vue({
     el: '#root',
+    data:{
+        couponApplied:false,
+    },
     methods: {
         onCouponApplied(){
-            alert('Coupon was applied successfully')
+            this.couponApplied= true
         }
 
     }
